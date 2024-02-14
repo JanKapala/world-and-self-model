@@ -1,0 +1,86 @@
+image: python:3.11.5
+
+stages:
+    - testing
+    - deployment
+
+.build: &build
+    before_script:
+        - curl -sSL https://install.python-poetry.org | python3 -
+        - export PATH="/root/.local/bin:$PATH"
+        - poetry install
+
+black:
+    stage: testing
+    <<: *build
+    script:
+        - poetry run inv black --only-check
+
+mypy:
+     stage: testing
+     <<: *build
+     script:
+         - poetry run inv mypy
+
+isort:
+    stage: testing
+    <<: *build
+    script:
+        - poetry run inv isort --only-check
+
+pylint:
+    stage: testing
+    <<: *build
+    script:
+        - poetry run inv lint
+
+bandit:
+    stage: testing
+    <<: *build
+    script:
+        - poetry run inv bandit
+
+unit-tests:
+    stage: testing
+    <<: *build
+    script:
+        - poetry run inv test unit
+
+component-tests:
+    stage: testing
+    <<: *build
+    script:
+        - poetry run inv test component
+
+code-coverage:
+    stage: testing
+    <<: *build
+    script:
+        - poetry run inv test coverage
+    coverage: '/(?i)total.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
+
+integration-tests:
+    stage: testing
+    <<: *build
+    script:
+        - poetry run inv test integration
+
+end-to-end-tests:
+    stage: testing
+    <<: *build
+    script:
+        - poetry run inv test e2e
+
+
+#deploy:
+#    script:
+#        - poetry run inv deploy
+#
+
+#
+#deploy-job:
+#    stage: deploy
+#    environment: production
+#    script:
+#        - echo "Deploying application..."
+#        - echo "Application successfully deployed."

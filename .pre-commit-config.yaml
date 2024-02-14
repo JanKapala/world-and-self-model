@@ -1,0 +1,33 @@
+repos:
+-   repo: local
+    hooks:
+    -   id: mypy
+        name: mypy
+        entry: inv mypy
+        language: system
+        types: [ python ]
+        pass_filenames: false
+    -   id: black
+        name: black
+        entry: inv black
+        language: system
+        types: [ python ]
+        pass_filenames: false
+    -   id: isort
+        name: isort
+        entry: inv isort
+        language: system
+        types: [ python ]
+        pass_filenames: false
+    -   id: pylint
+        name: pylint
+        entry: inv lint
+        language: system
+        types: [ python ]
+        pass_filenames: false
+    -   id: bandit
+        name: bandit
+        entry: inv bandit
+        language: system
+        types: [ python ]
+        pass_filenames: false

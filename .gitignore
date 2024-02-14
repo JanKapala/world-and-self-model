@@ -1,0 +1,7 @@
+.python-version
+.poetry_cache_dir
+**/.pytest_cache/
+**/.mypy_cache/
+**/__pycache__/
+.env
+.coverage
