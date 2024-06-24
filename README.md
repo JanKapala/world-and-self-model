@@ -1,5 +1,6 @@
-# Lawyer Assistant
-LLMs based assistant that helps lawyers with their work.
+# RL Agent with the world-and-self model
+Reinforcement learning agent with the world model that includes agent's internal state, current time and randomness source.
+World-and-self model is based on the transformer architecture.
 
 ### Project setup
 
@@ -23,15 +24,3 @@ You may need to install python helper libraries before installing the python:
 - This project uses Google style docstrings, set it in the Pycharm settings | Tools | Python Integrated Tools and also check following checkboxes:
   - Analyze Python code in docstrings
   - Render external documentation for stdlib
-
-- Install and register gitlab runner 
-  - Set "Run untagged jobs" in the gitlab CI -> runners -> previously setup runner
-  - Set concurrent = 30 in the /etc/gitlab-runner/config.toml
-
-[Install elasticsearch with docker](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html)
-If needed increase `vm.max_map_count` to at least 262144
-Open `sudo nano /etc/sysctl.conf`, then add the line `vm.max_map_count=262144` at the end of file and then execute `sudo sysctl --system`
-
-run elasticsearch: `docker run --name es01 --net elastic -v /home/jan/lawyer_assistant/elasticsearch_data_mountpoint:/usr/share/elasticsearch/data -p 9200:9200 -t -m 4GB docker.elastic.co/elasticsearch/elasticsearch:8.11.1`
-run kibana: `docker run --name kib01 --net elastic -p 5601:5601 docker.elastic.co/kibana/kibana:8.11.1`
-

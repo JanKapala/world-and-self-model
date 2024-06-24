@@ -5,7 +5,8 @@ import os
 
 from invoke import Context, task  # type: ignore[attr-defined]
 
-from constants import PROJECT_ROOT_PATH
+from constants import PROJECT_ROOT_PATH, MLFLOW_BACKEND_STORE_PATH, \
+    TENSORBOARD_LOGS_PATH
 
 SOURCE_PATH = os.path.join(PROJECT_ROOT_PATH, "agi")
 TESTS_PATH = os.path.join(PROJECT_ROOT_PATH, "tests")
@@ -80,3 +81,13 @@ def lint(c: Context) -> None:
 @task
 def bandit(c: Context) -> None:
     c.run(f"poetry run bandit -c pyproject.toml -r {SOURCE_PATH}")
+
+
+@task
+def tensorboard(c: Context) -> None:
+    c.run(f"poetry run tensorboard --logdir={TENSORBOARD_LOGS_PATH}")
+
+
+@task
+def mlflow_ui(c: Context) -> None:
+    c.run(f"poetry run mlflow ui --backend-store-uri {MLFLOW_BACKEND_STORE_PATH}")
