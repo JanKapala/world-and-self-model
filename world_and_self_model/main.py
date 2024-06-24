@@ -8,8 +8,8 @@ from gymnasium.spaces import Box
 from mlflow import log_metric
 from torch.utils.tensorboard import SummaryWriter
 
-from agi.conscious_agent import ConsciousAgent
-from agi.simulation import simulate
+from world_and_self_model.conscious_agent import ConsciousAgent
+from world_and_self_model.simulation import simulate
 from constants import TENSORBOARD_LOGS_PATH, MLFLOW_BACKEND_STORE_PATH
 
 if __name__ == "__main__":

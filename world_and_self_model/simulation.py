@@ -2,7 +2,7 @@ import numpy as np
 from gymnasium import Env
 from tqdm import trange, tqdm
 
-from agi.conscious_agent import ConsciousAgent
+from world_and_self_model.conscious_agent import ConsciousAgent
 
 
 def simulate(

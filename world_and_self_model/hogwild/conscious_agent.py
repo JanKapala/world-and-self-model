@@ -3,8 +3,8 @@ from typing import Deque, Type
 
 from gymnasium import Space
 
-from agi.model import Transformer
-from agi.hogwild.runners import ReadOnlyBufferProxy, Buffer
+from world_and_self_model.model import Transformer
+from world_and_self_model.hogwild.runners import ReadOnlyBufferProxy, Buffer
 
 
 class EnvironmentObservation:

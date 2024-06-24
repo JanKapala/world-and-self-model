@@ -8,7 +8,7 @@ from invoke import Context, task  # type: ignore[attr-defined]
 from constants import PROJECT_ROOT_PATH, MLFLOW_BACKEND_STORE_PATH, \
     TENSORBOARD_LOGS_PATH
 
-SOURCE_PATH = os.path.join(PROJECT_ROOT_PATH, "agi")
+SOURCE_PATH = os.path.join(PROJECT_ROOT_PATH, "world_and_self_model")
 TESTS_PATH = os.path.join(PROJECT_ROOT_PATH, "tests")
 UNIT_TESTS_PATH = os.path.join(TESTS_PATH, "unit")
 COMPONENT_TESTS_PATH = os.path.join(TESTS_PATH, "component")

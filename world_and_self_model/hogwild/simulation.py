@@ -1,4 +1,4 @@
-from agi.hogwild.runners import EnvironmentRunner, AgentRunner, Buffer
+from world_and_self_model.hogwild.runners import EnvironmentRunner, AgentRunner, Buffer
 
 
 # TODO: optional agent and env synchronization

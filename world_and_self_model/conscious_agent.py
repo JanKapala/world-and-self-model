@@ -9,8 +9,8 @@ from torch import Tensor
 from torch.nn.utils import clip_grad_norm_
 from torch.utils.tensorboard import SummaryWriter
 
-from agi.memory import Memory
-from agi.model import Transformer
+from world_and_self_model.memory import Memory
+from world_and_self_model.model import Transformer
 
 # TODO: multiepisode learning
 # TODO: randomness out of the loss function

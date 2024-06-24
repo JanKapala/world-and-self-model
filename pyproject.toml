@@ -1,10 +1,9 @@
 [tool.poetry]
-name = "AGI"
+name = "World-and-self model for RL agents"
 version = "0.1.0"
 description = "Experiment with self-conscious AI"
 authors = ["Jan <jankapala@gmail.com>"]
 readme = "README.md"
-packages = [{include = "agi"}]
 
 [tool.poetry.dependencies]
 python = ">=3.11"
@@ -43,7 +42,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.coverage.run]
 branch = true
-source = ["agi"]
+source = ["world_and_self_model"]
 concurrency = ["multiprocessing"]
 
 [tool.mypy]
